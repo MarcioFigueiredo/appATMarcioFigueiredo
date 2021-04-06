@@ -40,6 +40,16 @@
 			<label>Informe o nome do Cliente:</label>
 			<input type="text" class="form-control" name="nome">
 			</div>
+			
+			<div class="form-group">			
+			<label>Informe o CPF do Cliente:</label>
+			<input type="text" class="form-control" name="cpf">
+			</div>
+			
+			<div class="form-group">			
+			<label>Informe o RG do Cliente:</label>
+			<input type="text" class="form-control" name="rg">
+			</div>
 						
 			<button type="submit">Cadastrar</button>	
 		</form>
@@ -68,6 +78,53 @@
 		<c:if test="${empty lista}">
 			<p>Nenhum Cliente cadastrado!!!</p>
 		</c:if>
+		
+		<c:if test="${not empty lista}">
+		 <p>Listagem de Clientes.</p>            
+		  <table class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th>CPF:</th>
+		        <th></th>
+		        <th></th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    <c:forEach var="c" items="${lista}">
+		      <tr>
+		        <td>${c.cpf}</td>
+		        <td><a href="/cliente/${c.id}/excluir"> Excluir</a></td>
+		      </tr> 
+		      </c:forEach>
+		    </tbody>
+		  </table>
+		</c:if>
+		
+		<c:if test="${not empty lista}">
+		 <p>Listagem de Clientes.</p>            
+		  <table class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th>RG:</th>
+		        <th></th>
+		        <th></th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    <c:forEach var="c" items="${lista}">
+		      <tr>
+		        <td>${c.rg}</td>
+		        <td><a href="/cliente/${c.rg}/excluir"> Excluir</a></td>
+		      </tr> 
+		      </c:forEach>
+		    </tbody>
+		  </table>
+		</c:if>
+		
+		<c:if test="${empty lista}">
+			<p>Nenhum Cliente cadastrado!!!</p>
+		</c:if>
+		
 	</div>
 
 </body>

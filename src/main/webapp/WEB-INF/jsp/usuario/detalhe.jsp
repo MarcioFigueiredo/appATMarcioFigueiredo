@@ -14,7 +14,7 @@
 		<div class="panel-group">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h2>Cadastramento de Pedidos</h2>
+					<h2>Cadastramento de Usuários</h2>
 				</div>
 				
 				<div class="panel-body">
@@ -27,31 +27,21 @@
 			</div>
 		</div>
 		
-		<form action="/pedido/incluir" method="post">
+		<form action="/usuario/incluir" method="post">
 			
 			<div class="form-group">			
-			<label>Informe o Tipo:</label>
-			<input type="text" class="form-control" name="tipo">
+			<label>Informe o Nome do Usuário:</label>
+			<input type="text" class="form-control" name="nome">
 			</div>
 			
 			<div class="form-group">			
-			<label>Informe o Cliente:</label>
-			<select class="form-control" name="cliente.id">
-			
-				<c:forEach var="c" items="${clientes}">
-				<option value="${c.id}">${c.nome}</option>
-				</c:forEach>
-			</select>
+			<label>Informe o Email do Cliente:</label>
+			<input type="text" class="form-control" name="email">
 			</div>
 			
 			<div class="form-group">			
-			<label>Informe o Endereço do Cliente:</label>
-			<input type="text" class="form-control" name="endereco">
-			</div>
-			
-			<div class="form-group">			
-			<label>Informe o Telefone do Cliente:</label>
-			<input type="text" class="form-control" name="telefone">
+			<label>Informe o GIT do Cliente:</label>
+			<input type="text" class="form-control" name="git">
 			</div>
 						
 			<button type="submit">Cadastrar</button>	
@@ -62,19 +52,17 @@
 		  <table class="table table-striped">
 		    <thead>
 		      <tr>
-		        <th>Tipo:</th>
-		        <th>Cliente:</th>
-		        <th>Endereço:</th>
-		        <th>Telefone:</th>
+		        <th>Usuário:</th>
+		        <th>Email:</th>
+		        <th>GIT:</th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		    <c:forEach var="p" items="${lista}">
 		      <tr>
-		        <td>${p.tipo}</td>
-		        <td>${p.cliente.nome}</td>
-		        <td>${p.endereco}</td>
-		        <td>${p.telefone}</td>
+		        <td>${p.nome}</td>
+		        <td>${p.email}</td>
+		        <td>${p.git}</td>
 		        <td><a href="/pedido/${p.id}/excluir"> Excluir</a></td>
 		      </tr> 
 		      </c:forEach>

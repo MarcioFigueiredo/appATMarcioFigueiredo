@@ -19,7 +19,7 @@
 				
 				<div class="panel-body">
 					<div class="btn-group">
-						<form action="/">
+						<form action="/usuario">
 							<button type="submit" class="btn btn-link">Novo Usuário</button>
 						</form>
 					</div>
