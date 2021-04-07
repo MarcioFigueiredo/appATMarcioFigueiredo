@@ -66,6 +66,7 @@
 		        <th>Cliente:</th>
 		        <th>Endereço:</th>
 		        <th>Telefone:</th>
+		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>

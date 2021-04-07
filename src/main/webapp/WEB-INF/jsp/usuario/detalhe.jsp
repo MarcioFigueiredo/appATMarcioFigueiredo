@@ -19,13 +19,19 @@
 				
 				<div class="panel-body">
 					<div class="btn-group">
-						<form action="/home">
-							<button type="submit" class="btn btn-link">Home</button>
+						<form action="/">
+							<button type="submit" class="btn btn-link">Login</button>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+		
+		<c:if test="${not empty mensagem}">
+			<div class="alert alert-warning">
+		  		<strong>Atenção!!!</strong> ${mensagem}
+			</div>
+		</c:if>
 		
 		<form action="/usuario/incluir" method="post">
 			
@@ -35,26 +41,27 @@
 			</div>
 			
 			<div class="form-group">			
-			<label>Informe o Email do Cliente:</label>
+			<label>Informe o Email do Usuário:</label>
 			<input type="text" class="form-control" name="email">
 			</div>
 			
 			<div class="form-group">			
-			<label>Informe o GIT do Cliente:</label>
-			<input type="text" class="form-control" name="git">
+			<label>Informe a Senha do Usuário:</label>
+			<input type="text" class="form-control" name="senha">
 			</div>
 						
 			<button type="submit">Cadastrar</button>	
 		</form>
 		
 		<c:if test="${not empty lista}">
-		 <p>Listagem de Pedidos.</p>            
+		 <p>Listagem de Usuários.</p>            
 		  <table class="table table-striped">
 		    <thead>
 		      <tr>
 		        <th>Usuário:</th>
 		        <th>Email:</th>
-		        <th>GIT:</th>
+		        <th></th>
+		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -62,8 +69,8 @@
 		      <tr>
 		        <td>${p.nome}</td>
 		        <td>${p.email}</td>
-		        <td>${p.git}</td>
-		        <td><a href="/pedido/${p.id}/excluir"> Excluir</a></td>
+		        <td></td>
+		        <td><a href="/usuario/${p.id}/excluir"> Excluir</a></td>
 		      </tr> 
 		      </c:forEach>
 		    </tbody>
@@ -71,7 +78,7 @@
 		</c:if>
 		
 		<c:if test="${empty lista}">
-			<p>Nenhum Pedido cadastrado!!!</p>
+			<p>Nenhum Usuário cadastrado!!!</p>
 		</c:if>
 	</div>
 
