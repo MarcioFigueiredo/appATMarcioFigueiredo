@@ -1,9 +1,13 @@
 package br.edu.infnet.AppATMarcioFigueiredo.model.negocio;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +21,22 @@ public class Cliente {
 	private String cpf;
 	private String rg;
 	private String celular;
+	
+	@ManyToOne(cascade = CascadeType.DETACH)
+	@JoinColumn(name = "idCliente")
+	private Cliente cliente;
+	
+	@OneToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
+	
+	
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 	
 	public int getId() {
 		return id;

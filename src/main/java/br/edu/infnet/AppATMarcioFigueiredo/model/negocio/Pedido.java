@@ -21,9 +21,11 @@ public class Pedido {
 	private String pagamento;
 	private String endereco;
 	private String telefone;
+	
 	@OneToOne(cascade = CascadeType.DETACH)
 	@JoinColumn(name = "idCliente")
 	private Cliente cliente;
+	
 	@ManyToOne
 	@JoinColumn(name = "idUsuario")
 	private Usuario usuario;

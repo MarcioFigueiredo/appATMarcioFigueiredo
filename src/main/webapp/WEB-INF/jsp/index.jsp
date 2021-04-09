@@ -21,6 +21,14 @@
 				
 				<div class="panel-body">
 					<div class="btn-group">
+						<form action="/">
+							<button type="submit" class="btn btn-link">Novo Login</button>
+						</form>
+					</div>
+				</div>
+				
+				<div class="panel-body">
+					<div class="btn-group">
 						<form action="/cliente">
 							<button type="submit" class="btn btn-link">Novo Cliente</button>
 						</form>
